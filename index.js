@@ -32,7 +32,7 @@ var httpsServer = https.createServer(httpsServerOptions,function(req, res){
 
 // Start the HTTPS server
 httpsServer.listen(config.httpsPort,function(){
-  console.log("The server is listening on port "+config.httpsPort+");
+  console.log("The server is listening on port "+config.httpsPort);
 });
 
 // All the server logic for both http and https servervar
