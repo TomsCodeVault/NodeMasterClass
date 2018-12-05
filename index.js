@@ -5,11 +5,38 @@
 
 // Dependencies
 var http = require('http');
+var https = require('https');
 var url = require('url');
 var StringDecoder = require('string_decoder').StringDecoder;
+var config = require('./config');
+var fs = require('fs');
 
-// The server should respond to all requests with a string
+// Instantiate the HTTP server
 var httpServer = http.createServer(function(req, res){
+  unifiedServer(req,res);
+});
+
+// Start the server
+httpServer.listen(config.httpPort,function(){
+  console.log("The server is listening on port "+config.httpPort);
+});
+
+// Instatiate the HTTPS server
+var httpsServerOptions = {
+  'key' : fs.readFileSync('./https/server.key'),
+  'cert' : fs.readFileSync('./https/server.crt')
+};
+var httpsServer = https.createServer(httpsServerOptions,function(req, res){
+  unifiedServer(req,res);
+});
+
+// Start the HTTPS server
+httpsServer.listen(config.httpsPort,function(){
+  console.log("The server is listening on port "+config.httpsPort+");
+});
+
+// All the server logic for both http and https servervar
+var unifiedServer = function(req,res){
   
   // Parse the url from the requests
   var parsedUrl = url.parse(req.url,true);
@@ -70,13 +97,7 @@ var httpServer = http.createServer(function(req, res){
 		});  
 
 	});
-  
-});
-
-// Start the server, and have it listen on port 3000
-httpServer.listen(3000,function(){
-  console.log('The server is listening on port 3000 now');
-});
+};
 
 // Define handlers
 var handlers = {};
