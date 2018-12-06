@@ -110,7 +110,19 @@ handlers.ping = function(data,callback){
 // Hello handler
 handlers.hello = function(data,callback){
 	// Callback a http status code, and a payload object
-	callback(406,{'message' : 'welcome world!'});
+	callback(406,{
+    'A' : 'OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',
+    'B' : 'OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',
+    'C' : 'OO  OOOO  OO       OO  OOOOOOO  OOOOOOOO    OOO0O',
+    'D' : 'OO  OOOO  OO  OOOOOOO  OOOOOOO  OOOOOOO  OOO  OOO',
+    'E' : 'OO  OOOO  OO  OOOOOOO  OOOOOOO  OOOOOO  OOOOO  OO',
+    'F' : 'OO        OO      OOO  OOOOOOO  OOOOOO  OOOOO  OO',
+    'G' : 'OO  OOOO  OO  OOOOOOO  OOOOOOO  OOOOOO  OOOOO  OO',
+    'H' : 'OO  OOOO  OO  OOOOOOO  OOOOOOO  OOOOOOO  OOO  OOO',
+    'I' : 'OO  OOOO  OO       OO       OO      OOOO     OOOO',
+    'J' : 'OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO',
+    'K' : 'OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO'
+  });
 };
 
 // Not found handler
